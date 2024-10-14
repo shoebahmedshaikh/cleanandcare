@@ -5,7 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Clean and Care Services</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Container styling */
+        .rehan-sider-container {
+            width: 100%;
+            height: 400px; /* You can adjust this based on the desired height */
+            position: relative;
+            overflow: hidden;
+}
+
+        /* Image and text styling */
+        .rehan-sider-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures the image covers the area while keeping the aspect ratio */
+            object-position: center; /* Ensures the center of the image is visible if cropping happens */
+            transition: transform 0.3s ease;
+}
+
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+
+        /* Image container to help maintain aspect ratio */
+        .rehan-sider-img-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0; /* Optional: set a background color as a fallback */
+}
+
+        .rehan-sider-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+}
+
+        /* Hover effect for images and text */
+        .swiper-slide:hover .rehan-sider-img {
+            transform: scale(1.1);
+}
+
+        .swiper-slide:hover .rehan-sider-text {
+            opacity: 1;
+}
+
+        /* Navigation buttons styling */
+        .swiper-button-next, .swiper-button-prev {
+            color: #ff9900;
+}
+
+        /* Make the slider responsive */
+        @media (max-width: 768px) {
+        .rehan-sider-container {
+            height: 250px;
+    }
+        .rehan-sider-text {
+            font-size: 14px;
+    }
+}
+
+    </style>
 </head>
 <body>
     <header>
@@ -67,6 +141,66 @@
             </div>
         </section>
 
+        <!--sider code begin-->
+        <div class="swiper-container rehan-sider-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="rehan-sider-img-container">
+                        <img src="images/background.jpg" alt="Service 1" class="rehan-sider-img">
+                    </div>
+                    <div class="rehan-sider-text">Professional Home Cleaning</div>
+                </div>
+        
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="rehan-sider-img-container">
+                        <img src="images/image1.jpg" alt="Service 2" class="rehan-sider-img">
+                    </div>
+                    <div class="rehan-sider-text">Mosquito Net Installation</div>
+                </div>
+        
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="rehan-sider-img-container">
+                        <img src="images/image2.jpg" alt="Service 3" class="rehan-sider-img">
+                    </div>
+                    <div class="rehan-sider-text">Complete Home Care Solutions</div>
+                </div>
+        
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="rehan-sider-img-container">
+                        <img src="images/image3.jpg" alt="Service 4" class="rehan-sider-img">
+                    </div>
+                    <div class="rehan-sider-text">Deep Carpet Cleaning</div>
+                </div>
+        
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                    <div class="rehan-sider-img-container">
+                        <img src="images/image4.jpg" alt="Service 5" class="rehan-sider-img">
+                    </div>
+                    <div class="rehan-sider-text">Window & Glass Cleaning</div>
+                </div>
+        
+                <!-- Slide 6 -->
+                <div class="swiper-slide">
+                    <div class="rehan-sider-img-container">
+                        <img src="images/image5.jpg" alt="Service 6" class="rehan-sider-img">
+                    </div>
+                    <div class="rehan-sider-text">Bathroom Deep Cleaning</div>
+                </div>
+            </div>
+        
+            <!-- Pagination and Navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        
+        <!--sider code ends-->
+
         <section class="custom-services">
             <h2>Need a Custom Cleaning Solution?</h2>
             <p>We understand that every space is unique. Contact us to discuss your specific cleaning requirements, and we'll create a tailored cleaning plan just for you.</p>
@@ -111,5 +245,49 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.rehan-sider-container', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    centeredSlides: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    effect: 'coverflow',
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+        },
+    },
+});
+
+    </script>
 </body>
 </html>
